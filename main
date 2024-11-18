@@ -1,0 +1,28 @@
+from cmu_graphics import *
+from src.tank import Tank
+from src.projectile import Projectile
+from src.maze import Maze
+from src.game_logic import GameLogic
+
+def initializeGame():
+    # Set up maze, tanks, and game state
+    global maze, playerTank, projectiles, gameLogic
+    maze = Maze()
+    playerTank = Tank(100, 100, "green")  # Example tank at x=100, y=100
+    projectiles = []
+    gameLogic = GameLogic(maze, projectiles)
+
+def onStep():
+    # Update projectiles and check collisions
+    gameLogic.updateGame(playerTank, projectiles)
+
+
+def onKeyHold(keys):
+    playerTank.handleMovement(keys)
+
+def onKeyPress(key):
+    if key == 'space':  # Fire projectile
+        projectiles.append(playerTank.fireProjectile())
+
+initializeGame()
+cmu_graphics.run()
