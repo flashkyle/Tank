@@ -1,1 +1,78 @@
+from cmu_graphics import *
+import math
+
+class Tank:
+    def __init__(self, x, y, color):
+        self.body = Rect(x, y, 40, 20, fill=color)
+        self.cannon = Rect(x + 15, y - 10, 10, 10, fill="black")
+        self.direction = 0 
+
+    def move(self, dx, dy):
+        self.body.move(dx, dy)
+        self.cannon.move(dx, dy)
+
+    def handleMovement(self, keys):
+        if 'w' in keys: self.move(0, -5)
+        if 's' in keys: self.move(0, 5)
+        if 'a' in keys: self.move(-5, 0)
+        if 'd' in keys: self.move(5, 0)
+
+    def fireProjectile(self):
+        # Return a new projectile object
+        return Projectile(self.body.centerX, self.body.centerY, self.direction)
+
+
+class Projectile:
+    def __init__(self, x, y, direction):
+        self.shape = Oval(x, y, 5, 5, fill="red")
+        self.direction = direction
+        self.speed = 7
+        self.bounces = 3
+
+    def move(self):
+        dx = self.speed * math.cos(math.radians(self.direction))
+        dy = -self.speed * math.sin(math.radians(self.direction))
+        self.shape.move(dx, dy)
+
+    def checkCollision(self, maze):
+        if maze.checkWallCollision(self.shape):
+            self.bounces -= 1
+            # Reflect direction (example for horizontal walls)
+            self.direction = -self.direction
+
+        return self.bounces <= 0  
+
+
+class Maze:
+    def __init__(self):
+        self.walls = []
+        self.createMaze()
+
+    def createMaze(self):
+        self.walls.append(Rect(50, 50, 200, 10, fill="gray"))
+        self.walls.append(Rect(150, 200, 10, 200, fill="gray"))
+
+    def checkWallCollision(self, obj):
+        for wall in self.walls:
+            if wall.hitsShape(obj):
+                return True
+        return False
+
+    def drawMaze(self):
+        for wall in self.walls:
+            wall.toFront()
+
+class GameLogic:
+    def __init__(self, maze, projectiles):
+        self.maze = maze
+        self.projectiles = projectiles
+
+    def updateGame(self, playerTank, projectiles):
+
+        for projectile in projectiles[:]:
+            projectile.move()
+            if projectile.checkCollision(self.maze):
+                projectiles.remove(projectile)
+
+
 
