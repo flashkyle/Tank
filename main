@@ -5,7 +5,6 @@ from src.maze import Maze
 from src.game_logic import GameLogic
 
 def initializeGame():
-    # Set up maze, tanks, and game state
     global maze, playerTank, projectiles, gameLogic
     maze = Maze()
     playerTank = Tank(100, 100, "green")  # Example tank at x=100, y=100
@@ -13,7 +12,6 @@ def initializeGame():
     gameLogic = GameLogic(maze, projectiles)
 
 def onStep():
-    # Update projectiles and check collisions
     gameLogic.updateGame(playerTank, projectiles)
 
 
