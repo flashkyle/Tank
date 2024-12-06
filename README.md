@@ -1,14 +1,13 @@
-**README.md
-Sokoban Game
-Project Title and Description
+
+#Sokoban Game
+##Project Title and Description
 Sokoban Game is a classic puzzle game where the player pushes blocks to their corresponding targets. The game includes multiple levels, a timer, step counter, undo/redo functionality, and a level selection screen. This implementation focuses on user interaction and features that enhance the gameplay experience.
 
-Run Instructions
+##Run Instructions
 Prerequisites
 Before running the game, ensure you have the following installed:
-
 Python 3.11+
-Download from python.org.
+
 
 Required Libraries:
 cmu_graphics
