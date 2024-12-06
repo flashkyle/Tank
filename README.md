@@ -22,13 +22,12 @@ Before running the game, ensure you have the following installed:
 #### **Game Files**
 Make sure the following files are in the same directory:
 - `sokoban_player.py` (main game file)
-- `sokoban_loader.py` (level loading logic)
+- `sokoban_loader.py` 
 - Level images:
   - `level1-10x10.png`
   - `level2-7x9.png`
   - `level3-8x6.png`
   - `level4-8x6.png`
-- `player.png` (player's image)
 
 #### **How to Run**
 1. Open your terminal or command prompt.
