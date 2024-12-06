@@ -1,39 +1,55 @@
-# Tank Trouble: Battle Chronicles
+README.md
+Sokoban Game
+Project Title and Description
+Sokoban Game is a classic puzzle game where the player pushes blocks to their corresponding targets. The game includes multiple levels, a timer, step counter, undo/redo functionality, and a level selection screen. This implementation focuses on user interaction and features that enhance the gameplay experience.
 
-## **Overview**
-Tank Trouble: Battle Chronicles is a modern reimagining of the classic game Tank Trouble. In this project, players control tanks in maze-like environments, engage in strategic battles with bouncing projectiles, and navigate challenges as part of a plot-driven adventure. The game is built using the **CMU Graphics framework** and demonstrates mastery of Python programming concepts.
+Run Instructions
+Prerequisites
+Before running the game, ensure you have the following installed:
 
----
+Python 3.11+
+Download from python.org.
 
-## **Features**
-- **Tank Movement:** Smooth, interactive controls for player movement and aiming.
-- **Projectile Mechanics:** Fire bouncing projectiles that interact with walls and other tanks.
-- **Dynamic Mazes:** Randomly generated maze layouts to enhance replayability.
-- **Storyline Elements:** Narrative progression through objectives and challenges.
+Required Libraries:
+cmu_graphics
+Pillow
+To install these libraries, run the following commands:
+pip install cmu-graphics
+pip install pillow
+Game Files
+Make sure the following files are in the same directory:
 
----
+sokoban_player.py (main game file)
+sokoban_loader.py (level loading logic)
 
-## **Setup Instructions**
-1. **Prerequisites:**
-   - Python 3.x installed.
-   - CMU Graphics framework installed (part of course materials).
+Level images:
+level1-10x10.png
+level2-7x9.png
+level3-8x6.png
+level4-8x6.png
 
-2. **How to Run:**
-   - Clone or download the repository to your local machine.
-   - Open a terminal and navigate to the project directory.
-   - Run the game with the following command:
-     ```bash
-     python main.py
-     ```
 
-3. **Directory Structure:**
-   ```plaintext
-   TankTroubleProject/
-   ├── main.py             # Entry point for the game
-   ├── src/                # Contains all source code
-   │   ├── tank.py         # Tank class
-   │   ├── projectile.py   # Projectile class
-   │   ├── maze.py         # Maze generation and collision detection
-   │   ├── game_logic.py   # Overall game logic
-   │   └── __init__.py     # (optional) Package initialization
-   └── README.md           # Project documentation
+How to Run
+Open your terminal or command prompt.
+Navigate to the directory where the files are located.
+Run the following command:
+python sokoban_player.py
+The game window will open. Start playing!
+
+Shortcut Commands
+General Commands
+Arrow Keys (↑ ↓ ← →): Move the player in the respective direction.
+u: Undo the last move.
+r: Redo a move that was undone.
+a: Almost solve the level (only works on Level 1).
+Any Key: Return to the level selection screen after winning a level.
+Features
+Undo/Redo: Press u to undo and r to redo moves. This allows you to explore different strategies without restarting the level.
+Almost Solve: Press a in Level 1 to test the game's "one move to solve" functionality.
+Level Selection: Use the mouse to click on a level in the title screen to start that level.
+Game Features
+Multiple Levels: Includes 4 levels with increasing complexity.
+Timer and Step Counter: Tracks the time and steps taken for each level.
+Level Selection Screen: Navigate through levels using a graphical interface with previews.
+Win Screen: Displays a congratulatory message when a level is completed.
+Undo/Redo: Allows the player to undo and redo moves for more flexibility.
